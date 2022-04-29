@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header .top_banner {
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+}
+
+.header .top_banner span {
+    margin: 0 0 0 auto;
+}
+
+.header .top_banner a {
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.header .gnb {
+    margin: 0 0 0 auto;
+}
+
+.header .gnb>ul {
+    display: flex;
+    gap: 30px;
+    /* flex로 붙은 박스들 띄우기, ie에서 안먹음(margin,padding left주기) */
+    line-height: 90px;
+    /* 이미지와 크기 맞추기 위해 px 값 설정 */
+    font-size: 19px;
+    font-weight: 500;
+}
+
+/* i는 line height가 1이라고 포함되어 있으므로 border right,left를 a에 부여 */
+
+/* display:flex 때문에(크기 쪼그라들음) - 박스 좌우정렬 가능(박스끼리 붙음)
+ top banner가 하나의 박스가 되었기 때문에 span인 상태와 같기 때문에 text-align을 해도 이미 양측에 치우쳐있어서 margin으로 오른쪽으로 치우치게 함 */

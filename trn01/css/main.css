@@ -31,7 +31,9 @@
     line-height: 90px;
     /* 이미지와 크기 맞추기 위해 px 값 설정 */
     font-size: 19px;
+    /* 폰트 기본 사이즈 거의 16px */
     font-weight: 500;
+    /* 폰트 두께 */
 }
 
 /* i는 line height가 1이라고 포함되어 있으므로 border right,left를 a에 부여 */

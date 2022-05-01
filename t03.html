@@ -51,6 +51,7 @@
             background: #f00;
             border-radius: 50%;
             transition: 0.5s;
+            /* 애니메이션 속도 조절 */
         }
 
         .main_visual .container:hover span {
@@ -68,6 +69,7 @@
 
         .main_visual .container figure:hover img {
             transform: scale(1.8);
+            /* transform: 레이아웃을 손상시키지 않고 자기 자신을 변화시킬 때 */
         }
 
         .mopen {
@@ -92,6 +94,8 @@
         .mopen>span:nth-child(1) {
             top: 20px;
         }
+
+        /* nth-child : index 번호순으로 불러올 때 */
 
         .mopen>span:nth-child(2) {
             top: 40px;
@@ -126,7 +130,9 @@
 <body>
     <section class="main_visual">
         <h2>Lorem ipsum dolor sit.</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+        <p>
+            <!-- 문장(paragraph) -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
             Ratione molestiae magnam hic debitis eius!
         </p>
         <div class="container">
@@ -147,11 +153,20 @@
     </div>
     <script>
         document.querySelector('.mopen').addEventListener('click', function () {
+            //querySelector : 선택자 하나만을 선택, querySelectorAll : 같은 이름의 선택자가 여러 개 일 때 전부 선택
             console.log('찍네~~~~');
-            //자기에게 oo 클래스를 붙여줘
+            // console.log(''): 콘솔에 ()값을 나타내라
             this.classList.toggle('oo')
+            //자신에게 oo 클래스를 붙여줘
+            // this : 자기 자신
         })
     </script>
 </body>
 
 </html>
+
+<!-- 태그 설명
+1. <table> : 표 
+2. <ol> / <ul> : 번호가 있는/ 없는 목록
+3. <br> : 줄바꿈 태그
+4. <class=""> : 이름 부여-->

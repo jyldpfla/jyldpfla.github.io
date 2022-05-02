@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header .top_banner {
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+}
+
+.header .top_banner span {
+    margin: 0 0 0 auto;
+}
+
+.header .top_banner a {
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.header .gnb {
+    margin: 0 0 0 auto;
+}
+
+.header .gnb>ul {
+    display: flex;
+    gap: 30px;
+    /* flex로 붙은 박스들 띄우기, ie에서 안먹음(margin,padding left주기) */
+    line-height: 90px;
+    /* 이미지와 크기 맞추기 위해 px 값 설정 */
+    font-size: 19px;
+    /* 폰트 기본 사이즈 거의 16px */
+    font-weight: 500;
+    /* 폰트 두께 */
+}
+
+/* i는 line height가 1이라고 포함되어 있으므로 border right,left를 a에 부여 */
+
+/* display:flex 때문에(크기 쪼그라들음) - 박스 좌우정렬 가능(박스끼리 붙음)
+ top banner가 하나의 박스가 되었기 때문에 span인 상태와 같기 때문에 text-align을 해도 이미 양측에 치우쳐있어서 margin으로 오른쪽으로 치우치게 함 */
+
+/* 메인비주얼 */
+.main_visual {
+    position: relative;
+    /* 기준점 설정 */
+    height: 600px;
+    /* 떠오르는 것들은 0에 수렴하므로 백그라운드 height에 영향x */
+    background: url(../img/main_slider01.jpg) no-repeat center top/cover;
+}
+
+.main_visual .slogan {
+    position: absolute;
+    top: 100px;
+    right: 600px;
+    /* 이미지에 좌우 크기 똑같이 주면 이미지가 커짐 */
+}
+
+.main_slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+}
+
+/* 기준은 이미 잡힌 .main_visual */
+
+.main_slider h3 {
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 0 30px 0;
+    color: #00f;
+}
+
+.main_slider strong {
+    display: block;
+    margin: 0 0 20px 0;
+    color: #fd7e14;
+}
+
+.main_slider .slick-dots {
+    padding: 30px 0 0 0;
+}
+
+/* 작업관리자 통해서 확인하면 slick-dots라는 클래스로 ul 자동생성 확인 가능 */
+
+.main_slider .slick-dots li {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    /* left에 이미 붙어있으므로 margin right에 */
+    width: 80px;
+    height: 4px;
+    /* 버튼이 없어서 안보이므로 li에 height 부여 */
+    background: #333;
+}
+
+.main_slider .slick-dots li.slick-active {
+    background: #fd7e14;
+}
+
+/* slick-active는 slick이 실행됐을 때 li에 붙는 class선택자 */
+
+.main_slider .slick-dots button {
+    display: none;
+    /* li안에 버튼 밖에 없는데 버튼을 없애서 background 사라짐 */
+}

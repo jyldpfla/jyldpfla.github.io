@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+    <style>
+        .bg01 {
+            height: 500px;
+            /* 백그라운드 설정한 파트에 높이 설정x, 내용 x면 높이 0(기본속성) */
+            background: #f00 url(./trn01/img/main_slider01.jpg) no-repeat center top /cover;
+            /* 축약형으로 쓸 때 size 앞에 / 써주기 */
+            /* 로고가 투명하므로 백그라운드 색 보임 */
+            /* position - repeat가 원 속성 repeat-x : x축만 반복*/
+            /* size - cover: 전체를 채움(반응형 웹에 적절+포지션 xy center)
+            contain: 백그라운드를 다 보여줌 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg01">001</div>
+</body>
+
+</html>

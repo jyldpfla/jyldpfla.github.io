@@ -16,6 +16,33 @@
     페이지 첫로드시 100프로 크기 -->
     <title>Document</title>
     <!-- 파일의 제목 -->
+    <style>
+        body {
+            margin: 0 0 auto 0;
+        }
+
+        h1 {
+            text-align: center;
+            background: #b6cec8;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        hr {
+            margin: 0;
+            border: none;
+            border-top: 1px solid #b6cec8;
+        }
+
+        .ol>ol:nth-child(1) {
+            color: #327263;
+        }
+
+        .ol>ol:nth-child(1) {
+            color: #1e443d;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,36 +51,39 @@
     <!-- 제목, 1~6까지 유일하게 넘버링 붙음(h1은 하나만 존재) -->
 
     <hr>
-    <ol>
-        <li>
-            <a href="t01.html" target="_blank">박스모델 색, 크기 조절(220428)</a>
-        </li>
-        <li>
-            <a href="t02.html" target="_blank">박스모델-display:flex, 가로배열(220429)</a>
-        </li>
-        <li>
-            <a href="t03.html" target="_blank">박스모델-position(z축)(220429)</a>
-        </li>
-        <li>
-            <a href="t04.html" target="_blank">백그라운드(220502)</a>
-        </li>
-        <li>
-            <a href="t05.html" target="_blank">가상요소선택자-before,after(220503)</a>
-        </li>
-    </ol>
+    <!-- 박스의 속성을 가지고 있음 -->
+    <div class="ol">
+        <ol>
+            <li>
+                <a href="t01.html" target="_blank">박스모델 색, 크기 조절(220428)</a>
+            </li>
+            <li>
+                <a href="t02.html" target="_blank">박스모델-display:flex, 가로배열(220429)</a>
+            </li>
+            <li>
+                <a href="t03.html" target="_blank">박스모델-position(z축)(220429)</a>
+            </li>
+            <li>
+                <a href="t04.html" target="_blank">백그라운드(220502)</a>
+            </li>
+            <li>
+                <a href="t05.html" target="_blank">가상요소선택자-before,after(220503)</a>
+            </li>
+        </ol>
 
-    <ol>
-        <li>
-            <a href="trn220428/index.html" target="_blank">머릿말, 로고, 메뉴바(220429)</a>
-        </li>
-        <li>
-            <a href="trn220502/index.html" target="_blank">백그라운드, 슬라이드(220502)</a>
-        </li>
-        <li>
-            <a href="trn220503/index.html" target="_blank">탭 메뉴, 본문영역, 가상요소선택자-before,after(220503),텍스트 그라데이션, 박스
-                애니메이션(220503)</a>
-        </li>
-    </ol>
+        <ol>
+            <li>
+                <a href="trn220428/index.html" target="_blank">머릿말, 로고, 메뉴바(220429)</a>
+            </li>
+            <li>
+                <a href="trn220502/index.html" target="_blank">백그라운드, 슬라이드(220502)</a>
+            </li>
+            <li>
+                <a href="trn220503/index.html" target="_blank">탭 메뉴, 본문영역, footer, 가상요소선택자-before,after(220503),텍스트
+                    그라데이션, 박스 애니메이션(220503)</a>
+            </li>
+        </ol>
+    </div>
 </body>
 
 </html>

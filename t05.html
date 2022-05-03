@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소선택자(before, after)</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+        .main_link h2::before {
+            content: "";
+            display: inline-block;
+            /* 이 속성으로 h2와 가로배열 가능 */
+            width: 80px;
+            height: 1px;
+            background: #f00;
+            vertical-align: middle;
+            /* inline으로 쌓인 것들을 정렬 */
+            margin: 0 10px;
+        }
+
+        /* 가상선택자로 제목 옆 줄 넣기 */
+        .main_link h2::after {
+            content: "";
+            display: inline-block;
+            /* 이 속성으로 h2와 가로배열 가능 */
+            width: 80px;
+            height: 1px;
+            background: #f00;
+            vertical-align: middle;
+            /* inline으로 쌓인 것들을 정렬 */
+            margin: 0 10px;
+        }
+
+        /* 가상선택자로 아이콘 붙이기 */
+        .main_link li::before {
+            content: "\ea10";
+            /* 아이콘 html에 쓰고, 작업관리자 style에서 content값 여기다가 붙이기 */
+            font-family: xeicon !important;
+            /* noto-sans 말고 아이콘에 맞는 폰트 붙여넣기 */
+
+        }
+
+        .main_link h3::after {
+            content: "";
+            /* 내용이 있어야 나오므로 */
+            display: block;
+            /* 나오라고 박스 만들어줌 */
+            width: 80px;
+            height: 1px;
+            background: #fd7e14;
+            margin: 15px 0 15px 0;
+        }
+
+        .footer ul>li~li::before {
+            content: "";
+            display: inline-block;
+            width: 1px;
+            height: 13px;
+            /* 글자 px보다 작게하는게 좋음 */
+            background: #333;
+            margin: 0 15px;
+            vertical-align: middle;
+    </style>
+</head>
+
+<body>
+    <section class="main_link">
+        <!--가상 선택자로 줄, 아이콘 넣기 -->
+        <h2>가상요소선택자</h2>
+        <ul>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Lorem ipsum dolor sit.</li>
+        </ul>
+        <div class="container">
+            <figure>
+                <h3>Lorem ipsum dolor sit.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br /> Iusto pariatur labore
+                    architecto corporis facere non amet, iste impedit quam nostrum?</p>
+                <a href="#!">more</a>
+            </figure>
+        </div>s
+    </section>
+</body>
+
+</html>

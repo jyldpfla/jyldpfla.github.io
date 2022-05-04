@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- .px단위로 사이즈를 줄여주는 역할 -->
+    <!-- content="width=device-width: 디바이즈 화면의 너비와 맞춰줌 -->
+    <title>반응형 웹</title>
+    <style>
+        * {
+            margin: 0;
+            /* figure에 기본적으로 margin 존재하므로 gap값만큼만 벌어지게 하기 위해 */
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+        }
+
+        .responsive {
+            background: #f00;
+        }
+
+        .responsive span {
+            display: none;
+        }
+
+        .res02 {
+            display: flex;
+            gap: 20px;
+            width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        .res02 figure {
+            flex: 1;
+            background: #ff0;
+        }
+
+        nav {
+            background: #f00;
+        }
+
+        nav>ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            line-height: 40px;
+        }
+
+        nav>ul a {
+            display: block;
+            padding: 0 15px;
+            color: #fff;
+        }
+
+        .mopen {
+            display: none;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .mopen::before {
+            content: "O";
+
+        }
+
+        .mopen.on::before {
+            content: "X";
+
+        }
+
+        @media (max-width: 768px) {
+            .responsive {
+                background: #369;
+            }
+
+            .responsive span {
+                display: block;
+            }
+
+            .res02 {
+                display: flex;
+                flex-direction: column;
+                /* 기본은 row */
+                gap: 20px;
+                width: auto;
+                margin: 0 auto;
+            }
+
+            .res02 figure {
+                flex: 1;
+                background: #f00;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                background: #fff;
+                width: calc(100% - 90px);
+                /* calc:계산 - 90px을 남기기 */
+                height: 100vh;
+                /* 100vh : 뷰포트의 높이의 100%, vw: 뷰포트의 너비 */
+                padding: 50px 15px;
+                transition: 0.5s;
+            }
+
+            nav.on {
+                left: 0;
+            }
+
+            /* 같은 태그 class선택자 부를 때 붙여쓰기 */
+
+            /* 클릭해서 class 붙으면 left가 0이 돼서 menu가 나오도록 */
+
+            nav>ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                list-style: none;
+                line-height: 40px;
+            }
+
+            nav>ul a {
+                display: block;
+                padding: 0 15px;
+                color: #333;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .mopen {
+                display: block;
+            }
+        }
+
+        /* @media () {} : 만약에 ()라면, {}해라 */
+
+        /* 768px 이하가 됐을 때 */
+    </style>
+</head>
+
+<body>
+    <div class="responsive">
+        <h1>
+            <span>선택장애있음.</span>
+        </h1>
+    </div>
+
+    <div class="res02">
+        <figure>01</figure>
+        <figure>01</figure>
+        <figure>01</figure>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu01</a></li>
+        </ul>
+    </nav>
+
+    <div class="mopen">
+    </div>
+    <script>
+        document.querySelector('.mopen').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('on')
+            // classList.add : 클래스를 붙여라
+            // toggle : 넣었다가 빼기
+            this.classList.toggle('on')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img hover</title>
+    <link rel="stylesheet" href="./trn01/css/reset.css">
+    <style>
+        img {
+            max-width: 100%;
+        }
+
+        section h2 {
+            font-size: 21px;
+            font-weight: 500;
+            margin: 0 0 30px 0;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: #f00;
+            margin: 20px auto;
+            /* 박스 가운데로 오게 하기 좌우값 auto */
+        }
+
+        section p {
+            font-size: 15px;
+            font-weight: 300;
+            margin: 0 0 30px 0;
+        }
+
+        section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        section .container {
+            display: flex;
+            width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        .content .inbox {
+            overflow: hidden;
+            /* inbox로 한번 더 싸주면 hidden이 inbox에 먹어서 more이 가려지지 않음*/
+        }
+
+        .content figure img {
+            transition: 1s;
+        }
+
+        .content figure:hover img {
+            transform: scale(2);
+            transition: 0.5s;
+            /* hover에 transition 주면 줄어들 때 효과 안먹음 */
+        }
+
+        .con02 figure {
+            position: relative;
+            overflow: hidden;
+            /* 장바구니 아이콘 바깥에 있으므로 안나옴 */
+        }
+
+        .con02 figure a {
+            position: absolute;
+            /* 이미지 중앙에 띄우기, 마우스 hover할 때 나오게 없애기
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            visibility: hidden;
+            공간은 두고, 기능까지 없앰-커서 모양 안바뀌게 하기 위해 */
+            right: 0;
+            bottom: -38px;
+            transition: 0.5s;
+            /* visible은 현상이라 안 되지만, opacity는 수치가 있기 때문에 transition 가능 */
+            border: 1px solid #333;
+            background: #fff;
+            /* hover먹일때 위치조정
+            padding: 0 20px;
+            line-height: 30px;
+            height: 35px;
+            글자 특성 때문에 padding lineheight 먹여도 완벽히 중앙으로 오지 않음, height로 수치 조절해서 more이란 글자가 가운데로 오도록 함 */
+        }
+
+        .con02 figure:hover a {
+            /* 마우스 hover할때 나오게하기
+            opacity: 1;
+            visibility: visible; */
+            bottom: 0;
+        }
+
+        .con03 .inbox {
+            position: relative;
+        }
+
+        .con03 .inbox::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            /* width,height 0 으로 안나오게 하기 */
+            /* 보통의 박스에서는 100% 안먹음, 기준이 있을 때 먹음 */
+            background: rgba(0, 0, 0, 0.25);
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            transition: 0.5s 0.5s;
+            /* 늦게 나왔으면 하는 곳에 delay 속도 뒤에 붙이면 됨 */
+            box-sizing: border-box;
+            /* 박스 사이즈가 약간 바깥으로 나가는 것을 이미지 밖으로 안나가도록 border-box 부여 */
+            opacity: 0;
+            /* border 모서리에 . 사라지게 하기 */
+        }
+
+        .con03 .inbox::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            /* 보통의 박스에서는 100% 안먹음, 기준이 있을 때 먹음 */
+            background: rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            transition: 0.5s;
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .con03 .inbox:hover::before,
+        .con03 .inbox:hover::after {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="content">
+        <!-- 이미지 확대, overflow:hidden; -->
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nemo.</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt="">
+                </div>
+                <a href="">more</a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s012.jpg" alt="">
+                </div>
+                <a href="">more</a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s013.jpg" alt="">
+                </div>
+                <a href="">more</a>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="con02">
+        <!-- hover에 장바구니 아이콘 올라오게 하기 -->
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nemo.</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt="">
+                </div>
+                <a href="">
+                    <i class="xi-cart"></i>
+                </a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s012.jpg" alt="">
+                </div>
+                <a href="">more</a>
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s013.jpg" alt="">
+                </div>
+                <a href="">more</a>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="con03">
+        <!-- 테두리 만들기 -->
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nemo.</p>
+        <div class="container">
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s011.jpg" alt="">
+                </div>
+
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s012.jpg" alt="">
+                </div>
+
+            </figure>
+            <figure>
+                <div class="inbox">
+                    <img src="./trn01/img/main_s013.jpg" alt="">
+                </div>
+
+            </figure>
+        </div>
+    </section>
+</body>
+
+</html>

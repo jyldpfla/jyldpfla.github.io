@@ -1,0 +1,428 @@
+/* 웹폰트 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+/* 웹 폰트 어디에 적용할지 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    /* 가운데 오도록 margin 좌우값 auto */
+}
+
+.top_banner {
+    padding: 25px 0;
+    background: #f1f1f1;
+}
+
+.top_banner .container {
+    display: block;
+    /* .container flex 영향 안받기 위해 */
+}
+
+.top_banner h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+}
+
+.top_banner p {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.top_banner a {
+    padding: 2px 15px 4px 15px;
+    border: 1px solid #333;
+    margin: 0 0 0 20px;
+    /* inline은 좌우 padding/margin은 먹음, 위아래는 먹는 것처럼 보임, 공간에 들어가진 않아서 주변 레이아웃에 영향이 가지 않음 */
+}
+
+.top_banner i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background: #333;
+    /* border-radius: 50%; */
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+.header .gnb {
+    line-height: 100px;
+}
+
+/* .header .gnb .container {
+    justify-content: space-between;
+    container 안 내용 가로 정렬 
+} */
+
+.header .gnb nav {
+    margin: 0 0 0 auto;
+}
+
+.header .gnb form {
+    margin: 0 0 0 50px;
+}
+
+nav>ul {
+    display: flex;
+    /* gap: 40px;  ie에서 안먹음*/
+}
+
+nav>ul>li {}
+
+nav>ul>li~li::before {
+    /* ~로 첫 li 줄 떼주기 */
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px;
+    /* 글자 기본 사이즈 16px 맞춰서 안튀어나오게 설정 */
+    background-color: #ddd;
+    margin: 0 20px;
+}
+
+#searchForm input[type='text'] {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    /* text파트 클릭했을 때 나오는 아웃라인 없애기 */
+    padding: 5px 0;
+}
+
+#searchForm button {
+    border: none;
+    outline: none;
+    background: transparent;
+    /* 배경 바뀔 때 대비 투명하게 */
+    font-size: 30px;
+}
+
+
+.main_visual figure {
+    position: relative;
+    /* .main_visual .container의 기준 */
+    height: 600px;
+}
+
+.main_visual .itm01 {
+    background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
+
+}
+
+.main_visual .itm02 {
+    background: url(../img/mainvisual02.jpg) no-repeat center center/cover;
+
+}
+
+.main_visual .itm03 {
+    background: url(../img/mainvisual03.jpg) no-repeat center center/cover;
+
+}
+
+/* js class선택자 on 붙였을 때 css
+    .main_visual figure {
+    font-size: 100px;
+    color: #fff;
+}
+
+.main_visual figure.on {
+    color: #f00;
+} */
+
+.main_visual .container {
+    display: block;
+    /* flex 피하기 위해 */
+    position: absolute;
+    /* 기준을 안 잡아주면 슬라이드 전체의 중심에 위치하게 됨 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.main_visual figure h3 {
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    text-shadow: 0 0 2px #333;
+    /* 우측 아래 블러 */
+}
+
+.main_visual figure.itm02 h3 {
+    color: #333;
+    text-shadow: 0 0 2px #fff;
+}
+
+.main_visual figure p {
+    font-size: 13px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.main_visual figure.itm02 p {
+    color: #333;
+}
+
+.main_visual figure a {
+    display: inline-block;
+    /* 글자 늘어났을 때 박스 늘어나는 것 막기 위해 padding으로 처리 */
+    font-size: 13px;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid #fff;
+    background: #333;
+    padding: 5px 20px 8px 20px;
+}
+
+.main_visual figure h3 {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on h3 {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.main_visual figure p {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on p {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s 0.5s;
+}
+
+.main_visual figure a {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.main_visual figure.on a {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s 1s;
+    /* 뒷 파트는 처음 실행 후 얼마 뒤에 실행될지 */
+}
+
+.main_visual .slick-dots {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* js에서 display block 돼있으므로 css에서 flex 먹여도 안 먹음 */
+
+}
+
+.main_visual .slick-dots li {
+    display: inline-block;
+    /* flex 안먹으므로 li에 inline-block 부여 */
+    width: 80px;
+    height: 5px;
+    background: #333;
+    margin: 0 5px;
+}
+
+.main_visual .slick-dots li::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #f00;
+}
+
+.main_visual .slick-dots li.slick-active::after {
+    width: 100%;
+    transition: 3s;
+    /* 슬라이드가 유지되는 시간에 관여, 슬라이드가 안보이는 부분에서도 계속 동작해서 부하가 생기므로, 앞이 아니라 뒤에 거는 이유는 앞에 돌아가는 걸 보장할 수 없기 때문에 뒤에 걸어서 앞으로 돌아가는 것까지 보장 */
+}
+
+/* .main_visual .slick-dots li.slick-active {
+    background: #f00;
+} */
+
+.main_visual .slick-dots button {
+    display: none;
+}
+
+
+/* float으로 가로배열
+.dtainer {
+    width: 1230px;
+    삐져나간 사이즈 잡아주기
+margin: 0 auto;
+}
+
+
+.dtainer::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.dtainer figure {
+    float: left;
+    float을 사용하면 가로로 붙일 수 있음
+    width: 33.333333%;
+    3등분
+    padding: 0 15px;
+    margin 겹침이 있으므로 padding
+}
+
+.dtainer figure img {
+    max-width: 100%;
+    넘치는 img 사이즈 맞추기, box가 내려가면 box-sizing: border box
+}
+*/
+
+/* .slide_num {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    font-size: 100px;
+    color: #fff;
+} */
+
+.basic {
+    padding: 100px 0;
+    text-align: center;
+    /* 이미지 글자 중간 정렬 */
+}
+
+.basic .container {
+    gap: 30px;
+}
+
+section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+section p {
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0 0 30px 0;
+}
+
+.basic figure {
+    flex: 1;
+    overflow: hidden;
+}
+
+.basic figure .inbox {
+    overflow: hidden;
+    /* 정해진 높이를 지켜서 글자를 가리지 않음 */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transition: 0.5s 0.5s;
+    margin: 0 0 30px 0;
+    /* 글자, 그림간 간격 띄우기 */
+}
+
+.basic figure:hover .inbox {
+    border-radius: 10px;
+}
+
+.basic figure img {
+    transition: 0.5s;
+}
+
+.basic figure:hover img {
+    transform: scale(1.25);
+}
+
+.basic figure strong {
+    display: block;
+    /* inline을 block으로 만들어서 (more)a를 아래로 내리기 */
+    margin: 0 0 20px 0;
+}
+
+.basic figure a {
+    display: inline-block;
+    /* padding, margin을 주기 위해, 안의 내용이 길어져도 맞춰서 사이즈 커짐 */
+    background: #333;
+    color: #fff;
+    padding: 5px 20px 10px 20px;
+    /* 위아래 다른 이유: 폰트 자체의 문제때문에 중간으로 보내려면 다르게 줘야함 */
+}
+
+.fixed_bg {
+    padding: 100px 0;
+    text-align: center;
+    color: #fff;
+    background: url(../img/mainvisual01.jpg) no-repeat fixed center center/cover;
+    /* center x축 position center y축 포지션 cover background가 잘려도 박스를 가득히 채워라 */
+    filter: grayscale(0.75);
+    /* ie에서 지원x */
+    /* background-attachment: fixed 백그라운드 고정 */
+}
+
+.fixed_bg i {
+    padding: 10px;
+    background: #333;
+    margin: 5px 0 0 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.fixed_bg span {
+    vertical-align: middle;
+    /* vertical-align은 양쪽 다 주어야함 */
+}
+
+.movie {
+    padding: 100px 0;
+}
+
+.movie .container {
+    gap: 50px;
+}
+
+.movie .container figure {
+    flex: 1;
+    /* 영상과 p 반씩 차지 */
+}
+
+.movie .container .dec {
+    flex: 1;
+    padding: 100px 0;
+}
+
+.movie video {
+    max-width: 100%;
+}
+
+.movie .dec i {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    margin: 0 5px 0 0;
+    /* icon이 살짝 떨어져있는 건 inlne-block이므로 html에서 i 태그간 띄어쓰기를 아예없애거나 margin으로 조정*/
+}
+
+.utube {
+    padding: 150px 0;
+    text-align: center;
+    color: #fff;
+    filter: grayscale(1);
+}
+
+.utube i {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0 2px;
+    font-size: 25px;
+    cursor: pointer;
+}

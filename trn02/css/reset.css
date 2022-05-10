@@ -90,6 +90,7 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -141,5 +142,7 @@ a {
 }
 
 img {
+    max-width: 100%;
+    /* 박스가 상속 받는 값의 100%, 사진 안 넘치게 하기 위해 */
     vertical-align: middle;
 }

@@ -20,8 +20,36 @@ $(function () {
         autoplay: true,
         pauseOnHover: false,
         pauseOnFocus: false,
+    });
+
+    $('.movie .dec i:nth-of-type(1)').on('click', function () {
+        $('.movie video').trigger('play')
+    });
+    // 선택자로 부르면 이름 바뀌면 js 수정해야하므로 위치로 잡기
+    $('.movie .dec i:nth-of-type(2)').on('click', function () {
+        $('.movie video').trigger('pause')
+    });
+
+    $("#myMovie").YTPlayer({
+        videoURL: 'https://youtu.be/5OI8gygTVLg',
+        containment: '.utube',
+        autoPlay: true,
+        mute: true,
+        startAt: 0,
+        opacity: 1,
+        showControls: false,
+        playOnlyIfVisible: true
+        // 자원 아끼기 위해 보일 때만 play
+    });
+
+    $('.utube i:nth-of-type(1)').on('click', function () {
+        $('#myMovie').YTPPlay();
     })
 
+    $('.utube i:nth-of-type(2)').on('click', function () {
+        $('#myMovie').YTPPause();
+    })
+    // 명령 방법 github doc에 있음 참조
 
 
     ////////////////////////////////////////////////////////////////////

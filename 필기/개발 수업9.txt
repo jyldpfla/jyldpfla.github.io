@@ -1,0 +1,41 @@
+● 박스와 박스 사이의 간격 → 아래 위로 padding을 줌
+-박스와 요소 사이의 간격은 한 번 정해지면 동일하게 작업, h2의 크기도 거의 고정
+-아래위 margin이 겹치므로 (margin겹침현상) 박스간 띄울 때 margin 사용 x (부모자식간에도 겹침현상 o)
+
+
+● 박스 가로배치 → flex외에도 padding + gap , float를 사용
+
+* 글자가 두껍거나 style이 많이 들어가면 아래는 고딕체를 사용해 깔끔하고 상대적으로 작게 표현(폰트는 갈라서 사용)
+* line과 element(요소)간 간격은 충분하게 띄워주어야 함(100~150 or 크게 띄울 때: 200~300), 붙여쓰지 않음
+*위가 강하면 아래는 background 약하게하고 다시 강하게 함
+*모듈화
+header와 footer는 페이지마다 따라 다님 → 파일로 따로 만들어서 붙여 씀(css파일처럼)
+→ html에서는 뗄 수 없으므로 따로 방법 필요
+
+padding으로 박스를 띄우기, text-align:center, 글자 간 띄움 margin:auto(margin간 겹침 때문에 값 auto), width:1200, img박스 가로 배열
+
+● em : text를 눕힘(주로 강조의 의미로 사용)
+ span: inline요소
+ strong: 강조, 굵게 (inline)
+
+ *inline요소는 width, height, 위아래 margin/padding 안먹음
+ -a도 inline
+
+ ● float는 박스 자체를 띄우기 때문에 공간이 사라짐(padding 준 값 사라짐)
+ → <div style="clear:both"></div>으로 가라 앉힘 (but, 필요없는 태그가 들어감)
+ → 가상요소 선택자 사용해서 clear: both 줌
+ *flex는 박스가 늘어도 비율 재지정할 필요 없음
+
+ *border radius generator : border 모양 만들어둔 것 사용 가능
+
+ ● parallax
+ : scroll에 반응하는 여러 기법
+ ● filter
+ : img를 흑백으로 만들어서 사용
+
+ *픽사베이 : 동영상 다운 가능
+
+ ● youtube 동영상 페이지에 올리기
+ yt player 검색 - popunzzi githubzip 다운해서 dist에서 min css, min js 다운 받아 내폴더에 넣기
+ popunzzi github doc에서 html 코드 복붙하기
+ jquery 사용 방법대로 사용

@@ -1,0 +1,31 @@
+<오늘의 수업>
+● hover
+: css에서 줄 수 있는 유일한 효과
+● ::before, ::after
+● 팝업창, 팝업배너
+● 페이지 상단 이동 버튼
+● 클릭으로 메뉴 나오게 하기, 스크롤 따라 다니는 메뉴
+● 탭 메뉴
+● js에서의 this
+* html에 들어가면 안되는 내용x 빈박스, 너무 많은 데이터 넣지 않기
+* 항상 백업 잘해두기
+
+*emmet 작성법 검색해서 공부해보기
+
+● hover 다단 메뉴
+-메뉴 안의 smenu는 보통 배경이미지 위에 겹쳐지므로 띄움
+
+*display none,block은 transition을 줄 수 없음 → height로 transition 효과를 줄 수 있음(but, auto는 수치가 없으므로 transition 못 주므로,auto x)
+*박스에 효과주면 안에 내용은 넘쳐서 다 보임 → overflow: hidden으로 박스 모양에 맞게 조정
+* before, after은 *에 넣은 css에 종속되지 않음
+
+● 팝업창 만들 때 꼭 들어가야하는 공식
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+● 팝업창
+→ 위치를 잘 잡아주어야함(position) 공식
+→ click하면 꺼져야 함
+→ 좌측 팝업창 position:absolute 주면 가로 스크롤 생기는데, 뷰포트 기준 position:fixed 주면 가로 스크롤 안 생김
+

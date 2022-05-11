@@ -1,0 +1,38 @@
+● slide : 플러그인으로 데이터를 불러와서 배치
+
+- 하나의 슬라이드 x, 여러 슬라이드 돌리기 → slick으로 slidesToShow: 5 속성 부여
+→ slick은 img 자체를 display: block으로 만듦
+(제품이 중간으로 만) 
+
+
+*slick-get it now- view on github에서 용법 알 수 있음
+
+- product_slider 화살표 버튼 만들기
+slide 바깥에 있으므로 더 위 박스인 section에 relative주고 absolute로 띄우고, margin으로 벌리기, or left/right 기준으로 떨어뜨리기(이미지 줄어들면 간격 줄어들어서 좁아짐)
+
+* slide와 flex는 맞지 않음
+* slick은 보이는 것만 가지고 돌릴 수 있음
+
+
+
+
+
+●탭 메뉴 + js로 링크 걸어두기
+-메뉴 선택칸은 ul>li로 주로 만듦
+-부모 메뉴, 안 li도 각각 번호를 가짐(index)
+
+
+
+
+
+
+●css로 라벨 만들기 → <small> 확인
+
+
+
+과제: slide 확대될 때 글 그림 같이 자연스럽게 확대
+     탭메뉴 2,3 만들기!!!
+     new absolute로 띄워서 떨어뜨리기
+
+*<form>은 무언갈 전송한다는것
+

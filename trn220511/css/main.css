@@ -514,6 +514,8 @@ section p {
     border-left: 100px solid #f00;
     width: 0;
     height: 0;
+    /* margin은 붙어있어서 내가 따로 추가! */
+    margin: 0 0 0 15px;
 }
 
 .product_list span {

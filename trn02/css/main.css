@@ -6,6 +6,8 @@
 /* 웹 폰트 어디에 적용할지 */
 body {
     font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    /* 가로 스크롤바 안생기게 하기 위해서 설정 */
 }
 
 .container {
@@ -14,6 +16,32 @@ body {
     width: 1200px;
     margin: 0 auto;
     /* 가운데 오도록 margin 좌우값 auto */
+}
+
+@media (max-width:768px) {
+    .container {
+        width: auto;
+        flex-direction: column;
+        /* 가로로 배열되던 것들 세로 배열 */
+        padding: 0 15px;
+    }
+
+    h2 {
+        padding: 0 15px;
+    }
+
+    p {
+        padding: 0 15px;
+        line-height: 1.45;
+    }
+
+    .container h2 {
+        padding: 0;
+    }
+
+    .container p {
+        padding: 0;
+    }
 }
 
 .top_banner {
@@ -57,6 +85,41 @@ body {
     cursor: pointer;
 }
 
+/* top_banner popup창으로 */
+@media (max-width:768px) {
+    .top_banner {
+        position: absolute;
+        top: 300px;
+        left: 15px;
+        right: 15px;
+        /* popup만들때 top,legft 50%, transform:translate(-50%,-50%)+width지정ㄷ 있지만 top 주고 left,right값을 주는 방법도 있음 */
+        /* transform: translate(-50%, -50%); */
+        padding: 25px 15px;
+        background: #f1f1f1;
+        z-index: 1000;
+    }
+
+    .top_banner h2 {
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    .top_banner p {
+        font-size: 13px;
+        line-height: 1.56;
+        margin: 20px 0 0 0;
+    }
+
+    .top_banner a {
+        padding: 2px 15px 4px 15px;
+        border: 1px solid #333;
+        margin: 20px 0 0 0;
+        display: block;
+        width: 100px;
+        /* block으로 늘어난 more 크기 맞춰주기 */
+    }
+}
+
 .header .gnb {
     line-height: 100px;
 }
@@ -74,12 +137,33 @@ body {
     margin: 0 0 0 50px;
 }
 
+.header .mbtn {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .header h1 {
+        padding: 0 15px;
+    }
+
+    .header .mbtn {
+        display: block;
+        /* 모바일에서는 생기게 하기 위해 */
+        position: fixed;
+        top: 20px;
+        right: 10px;
+        line-height: 1;
+        /* 다른 line-height를 먹고 있으므로 */
+        background: #ddd;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+}
+
 nav>ul {
     display: flex;
     /* gap: 40px;  ie에서 안먹음*/
 }
-
-nav>ul>li {}
 
 nav>ul>li~li::before {
     /* ~로 첫 li 줄 떼주기 */
@@ -108,6 +192,116 @@ nav>ul>li~li::before {
     font-size: 30px;
 }
 
+#searchForm.ssearchForm {
+    display: none;
+}
+
+@media (max-width:768px) {
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        /* 숨기기 */
+        width: calc(100% - 90px);
+        height: 100vh;
+        background: #fff;
+        border-right: 1px solid #333;
+        z-index: 1000;
+        transition: 0.5s;
+        /* 나왔다 들어가는 거 모두에 효과주려면 효과 들어가기 전 태그에 효과 부여해야 함 */
+    }
+
+    nav.on {
+        left: 0;
+    }
+
+    nav>ul {
+        display: flex;
+        flex-direction: column;
+        line-height: 40px;
+        padding: 100px 30px;
+    }
+
+    nav>ul>li {
+        border-bottom: 1px solid #ddd;
+    }
+
+    nav>ul>li>a {
+        display: block;
+        /* a 태그가 펴지면서 cursor 손가락으로 나옴 */
+    }
+
+    nav>ul>li~li::before {
+        display: none;
+    }
+
+    #searchForm {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 85px;
+    }
+
+    #searchForm input[type='text'] {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        outline: none;
+        /* text파트 클릭했을 때 나오는 아웃라인 없애기 */
+        padding: 5px 0;
+    }
+
+    #searchForm button {
+        border: none;
+        outline: none;
+        background: transparent;
+        /* 배경 바뀔 때 대비 투명하게 */
+        font-size: 30px;
+    }
+}
+
+@media (max-width:530px) {
+    #searchForm {
+        display: none;
+    }
+
+    #searchForm.ssearchForm {
+        display: block;
+        white-space: nowrap;
+        right: 60px;
+    }
+
+    #searchForm input[type='text'] {
+        width: 100%;
+    }
+
+    /* index.html에 추가 없이 나오게 하기
+        1.
+        #searchForm {
+            left: -100%;
+            transition: 0.5s;
+        }
+
+        nav.on~#searchForm {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            z-index: 1001;
+
+        2.
+        #searchForm {
+            display: none;
+            position: absolute;
+            white-space: nowrap;
+            z-index: 1001;
+
+        nav.on~#searchForm {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            z-index: 1001;
+            (+js에 버튼 눌렀을 때 searchForm에 on class선택자 붙이는 명령 주기)
+    */
+}
 
 .main_visual figure {
     position: relative;
@@ -176,15 +370,17 @@ nav>ul>li~li::before {
 
 .main_visual figure a {
     display: inline-block;
-    /* 글자 늘어났을 때 박스 늘어나는 것 막기 위해 padding으로 처리 */
+    /* padding 적용하기 위해서 display 적용 */
     font-size: 13px;
     font-weight: 300;
     text-align: center;
     border: 1px solid #fff;
     background: #333;
     padding: 5px 20px 8px 20px;
+    /* 글자 늘어났을 때 박스 늘어나는 것 막기 위해 padding으로 처리 */
 }
 
+/* 위로 올라오는 애니메이션 효과주기 */
 .main_visual figure h3 {
     transform: translateY(100px);
     opacity: 0;
@@ -297,6 +493,133 @@ margin: 0 auto;
     color: #fff;
 } */
 
+@media (max-width:768px) {
+    .main_visual figure {
+        position: relative;
+        /* .main_visual .container의 기준 */
+        height: calc(100vh - 100px);
+    }
+
+    .main_visual .itm01 {
+        background: url(../img/mainvisual01.jpg) no-repeat left center/cover;
+
+    }
+
+    .main_visual .itm02 {
+        background: url(../img/mainvisual02.jpg) no-repeat right center/cover;
+
+    }
+
+    .main_visual .itm03 {
+        background: url(../img/mainvisual03.jpg) no-repeat right center/cover;
+
+    }
+
+    .main_visual .container {
+        display: block;
+        /* flex 피하기 위해 */
+        position: absolute;
+        /* 기준을 안 잡아주면 슬라이드 전체의 중심에 위치하게 됨 */
+        top: 50%;
+        left: 15px;
+        right: 15px;
+        transform: translate(0, -50%);
+        color: #fff;
+    }
+
+    .main_visual figure h3 {
+        font-size: 5.5vw;
+        /* 뷰포트 사이즈에 맞춰서 줄바꿈 안되게 사이즈 줄이기 */
+        font-weight: 900;
+        margin: 0 0 20px 0;
+        text-shadow: 0 0 2px #333;
+        /* 우측 아래 블러 */
+    }
+
+    .main_visual figure.itm02 h3 {
+        color: #fff;
+        text-shadow: 0 0 2px #333;
+    }
+
+    .main_visual figure p {
+        font-size: 13px;
+        font-weight: 300;
+        margin: 0 0 20px 0;
+    }
+
+    .main_visual figure.itm02 p {
+        color: #fff;
+    }
+
+    .main_visual figure a {
+        display: inline-block;
+        /* padding 적용하기 위해서 display 적용 */
+        font-size: 13px;
+        font-weight: 300;
+        text-align: center;
+        border: 1px solid #fff;
+        background: #333;
+        padding: 5px 20px 8px 20px;
+        /* 글자 늘어났을 때 박스 늘어나는 것 막기 위해 padding으로 처리 */
+    }
+
+    /* 위로 올라오는 애니메이션 효과주기 */
+    .main_visual figure h3 {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    .main_visual figure.on h3 {
+        transform: translateY(0);
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .main_visual figure p {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    .main_visual figure.on p {
+        transform: translateY(0);
+        opacity: 1;
+        transition: 0.5s 0.5s;
+    }
+
+    .main_visual figure a {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    .main_visual figure.on a {
+        transform: translateY(0);
+        opacity: 1;
+        transition: 0.5s 1s;
+        /* 뒷 파트는 처음 실행 후 얼마 뒤에 실행될지 */
+    }
+
+    .main_visual .slick-dots {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* js에서 display block 돼있으므로 css에서 flex 먹여도 안 먹음 */
+
+    }
+
+    .main_visual .slick-dots li {
+        display: inline-block;
+        /* flex 안먹으므로 li에 inline-block 부여 */
+        width: 10px;
+        height: 10px;
+        background: #333;
+        margin: 0 2px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+
 .basic {
     padding: 100px 0;
     text-align: center;
@@ -384,6 +707,32 @@ section p {
     /* vertical-align은 양쪽 다 주어야함 */
 }
 
+@media (max-width:768px) {
+    .fixed_bg {
+        padding: 100px 0;
+        text-align: center;
+        color: #fff;
+        background: url(../img/mainvisual01.jpg) no-repeat scroll center center/cover;
+        /* fixed는 작동 안하는 브라우저 있고, 사이즈가 안 맞으므로 scroll */
+        filter: grayscale(0.75);
+        /* ie에서 지원x */
+        /* background-attachment: fixed 백그라운드 고정 */
+    }
+
+    .fixed_bg i {
+        padding: 10px;
+        background: #333;
+        margin: 5px 0 0 20px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    .fixed_bg span {
+        vertical-align: middle;
+        /* vertical-align은 양쪽 다 주어야함 */
+    }
+}
+
 .movie {
     padding: 100px 0;
 }
@@ -399,7 +748,7 @@ section p {
 
 .movie .container .dec {
     flex: 1;
-    padding: 100px 0;
+    padding: 20px 0;
 }
 
 .movie video {
@@ -525,6 +874,106 @@ section p {
     color: #fff;
 }
 
+@media (max-width:768px) {
+    .product_list .product_slider {
+        width: auto;
+        /* 박스가 100프로 늘어나있으므로 margin 필요 없음 */
+    }
+
+    .product_list .product_slider figure {
+        padding: 0 15px;
+    }
+
+    .product_list i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0, -50%);
+        background: #333;
+        padding: 15px;
+        color: #fff;
+        font-size: 40px;
+    }
+
+    .product_list .s_left {
+        margin: 0 0 0 0;
+        left: 15px;
+    }
+
+    .product_list .s_right {
+        margin: 0 0 0 0;
+        left: auto;
+        /* left값이 있어서 right가 늘어나는데, left 고정으로 right가 늘어나지 않도록 */
+        right: 15px;
+    }
+
+    .product_list .slick-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin: 20px 0 0 0;
+        /* margin은 보통 위에 잘 안 줌 */
+    }
+
+    .product_list .slick-dots li {
+        width: 10px;
+        height: 10px;
+        background: #333;
+        border-radius: 50%;
+    }
+
+    .product_list .slick-dots li.slick-active {
+        background: #f00;
+        /* slick-active slick에서 자동으로 붙는 선택자 */
+    }
+
+    .product_list .slick-dots button {
+        display: none;
+    }
+
+    .product_list .box {
+        margin: 0 0 20px 0;
+    }
+
+    .product_list figure img {
+        padding: 30px 0;
+        transition: 0.5s;
+    }
+
+    .product_list figure.slick-center img {
+        transform: scale(1.25);
+        /* slick-center : slick으로 자동으로 붙는 선택자 */
+        /* slide 돌아갈 때 사이즈 커지게 하기 */
+    }
+
+    .product_list h2 {
+        position: relative;
+        width: 360px;
+    }
+
+    .product_list small {
+        position: absolute;
+        display: block;
+        border-top: 30px solid #f00;
+        border-right: 30px solid transparent;
+        border-bottom: 30px solid #f00;
+        border-left: 100px solid #f00;
+        width: 0;
+        height: 0;
+        /* margin은 붙어있어서 내가 따로 추가! */
+        margin: 0 0 0 15px;
+        top: -30px;
+        right: -120px;
+    }
+
+    .product_list span {
+        position: absolute;
+        top: -10px;
+        left: -80px;
+        color: #fff;
+    }
+}
+
 .tab {
     padding: 100px 0;
     background: #f7f7f7;
@@ -648,4 +1097,35 @@ section p {
     /* input button등 기본적으로 body font 상속 못받음, 필요하면 다시 잡아줘야 함 */
     padding: 5px 15px;
     outline: none;
+}
+
+@media (max-width:768px) {
+    .footer .container {
+        align-items: center;
+        justify-content: space-between;
+        /* 안에 두개의 태그로 싸져있어서 */
+        line-height: 1.6;
+        padding: 30px 15px;
+    }
+
+    .footer .footer_top ul {
+        display: block;
+        text-align: center;
+        padding: 0 0 20px 0;
+    }
+
+    .footer .footer_top ul li {
+        display: inline-block;
+        /* 너무 밑으로 내리면 길어지니까 화면 사이즈에 맞춰서 내려갈 수 있도록 */
+        padding: 0 15px;
+    }
+
+    .footer .footer_top ul li~li::before {
+        display: none;
+    }
+
+    .footer .left {
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
 }

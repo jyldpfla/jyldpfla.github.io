@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/slick.css">
     <link rel="stylesheet" href="./css/jquery.mb.YTPlayer.min.css">
+    <link rel="stylesheet" href="./css/mbtn.css">
     <link rel="stylesheet" href="./css/main.css">
     <!-- link 순서 reset이 처음, 마지막이 내가 만든 css가 들어가야 함 -->
 </head>
@@ -36,6 +37,28 @@
                         </a>
                     </h1>
                     <nav>
+                        <form action="javascript:formSubmit()" id="searchForm" class="ssearchForm">
+                            <input type="text">
+                            <button>
+                                <i class="xi-search"></i>
+                            </button>
+                            <script>
+                                function formSubmit() {
+                                    const inVar = document.querySelector('#searchForm input');
+                                    // let : 변수 선언할 때(const:상수 선언, let: 변수 선언, var: 변수,상수 모두 가능 )
+                                    console.log(inVar);
+                                    if (inVar.value.length < 8) {
+                                        // 만약 inVar의 값의 길이가 8개보다 작으면 - 조건
+                                        alert('말이 짧다.');
+                                        // 경고창 띄우기
+                                        inVar.value = '';
+                                        // 칸 비우기
+                                        inVar.focus();
+                                        // 포커스 가게 하기
+                                    }
+                                }
+                            </script>
+                        </form>
                         <ul>
                             <li><a href="">하이주얼리</a></li>
                             <li><a href="">주얼리 컬렉션</a></li>
@@ -44,6 +67,11 @@
                             <li><a href="">특별한 솔리테어</a></li>
                         </ul>
                     </nav>
+                    <button class="hamburger mbtn hamburger--spring" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
                     <form action="javascript:formSubmit()" id="searchForm">
                         <input type="text">
                         <button>
@@ -145,8 +173,8 @@
             <section class="movie">
                 <div class="container">
                     <figure>
-                        <video src="./img/movie.mp4" muted autoplay loop></video>
-                        <!-- muted: 음소거, autoplay: 자동재생, loop: 반복 -->
+                        <video src="./img/movie.mp4" muted autoplay loop playsinline></video>
+                        <!-- muted: 음소거, autoplay: 자동재생, loop: 반복 playsinline: 아이폰에서 화면안에서 뜨도록 -->
                     </figure>
                     <div class="dec">
                         <h2>03. JEWELLERY COLLECTION</h2>
@@ -222,6 +250,7 @@
                         <ul class="tab_content">
                             <li class="on">
                                 <dl>
+                                    <!-- strong 태그대신 a태그 들어가서 링크로 잡혀야하는데 일단 이렇게 만들어둠!! -->
                                     <dd><strong>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐
                                             컬렉션</strong><span>2022.12.24</span></dd>
                                     <dd><strong>모던하면서도 클래식한 디자인들을 완벽하게 표현한 그라프 하우스의 시그너쳐
@@ -280,12 +309,12 @@
         <footer class="footer">
             <div class="footer_top container">
                 <ul>
-                    <li><a href="">이용약관</a></li>
-                    <li><a href="">문의하기</a></li>
-                    <li><a href="">개인정보 취급방침</a></li>
-                    <li><a href="">방문 예약하기</a></li>
-                    <li><a href="">사이즈 가이드</a></li>
-                    <li><a href="">그라프 하우스 소개</a></li>
+                    <li><a href="#!">이용약관</a></li>
+                    <li><a href="#!">문의하기</a></li>
+                    <li><a href="#!">개인정보 취급방침</a></li>
+                    <li><a href="#!">방문 예약하기</a></li>
+                    <li><a href="#!">사이즈 가이드</a></li>
+                    <li><a href="#!">그라프 하우스 소개</a></li>
                 </ul>
                 <div class="sns">
                     <a href=""><i class="xi-kakaotalk"></i></a>

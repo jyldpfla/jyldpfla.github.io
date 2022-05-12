@@ -31,8 +31,6 @@ slide 바깥에 있으므로 더 위 박스인 section에 relative주고 absolut
 
 
 과제: slide 확대될 때 글 그림 같이 자연스럽게 확대
-     탭메뉴 2,3 만들기!!!
-     new absolute로 띄워서 떨어뜨리기
 
 *<form>은 무언갈 전송한다는것
 

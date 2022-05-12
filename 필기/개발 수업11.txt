@@ -1,0 +1,29 @@
+반응형 웹 만들기
+
+참조: https://sipossa.github.io/doc01/
+→ float로 레이아웃, 다단메뉴, slick 등 배울 수 있음
+
+● css를 편리하게 사용하기
+1) rem px
+-rem 
+    ex. html{font-size:10px;}
+        body{font-size:0.8rem;} → html태그의 폰트 사이즈의 0.8배
+
+→ @media로 조건 주고 rem을 통해서 반응형 웹페이지를 만들 때 한 번에 전부 폰트 사이즈 변경 가능
+
+2) 
+    (1)root{} - 변수선언을 통해서 속성들을 지정해두고 편리하게 가져와서 사용 가능
+        ex. root {
+            --bw-w: #fff;
+        }
+
+            h1 {background:var(--bg-w)}
+    (2)class 선택자로 담아두고 파일 가져와서 사용 가능(ex. bootstrap, tailwind css)
+        ex. .bg-w {
+            background: #fff;
+        }
+
+● github랑 vs code 연결하기
+-git 다운받아서 깔아두기, git 명령을 줘서 하면 따로 저장없이 실시간 연동 가능!
+
+

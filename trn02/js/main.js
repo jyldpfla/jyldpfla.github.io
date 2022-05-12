@@ -71,6 +71,19 @@ $(function () {
         arrows: false,
         dots: true,
         autoplay: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                }
+                // breakpoint로 slick 반응형일 때 1개 슬라이드로 나오게하기
+            },
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
     });
 
     $('.product_list .s_left').on('click', function () {
@@ -95,7 +108,13 @@ $(function () {
         // 만약 lik(link)가 있으면 띄워라,중괄호 생략된 상태
         // 새창을 띄워라
         // console.log(lik);
+    });
+
+    $('.mbtn').on('click', function () {
+        $('nav').toggleClass('on');
+        $(this).toggleClass('is-active')
     })
+    // => : 화살표 함수, function 대신 사용 가능, but this 안 먹음
 
 
     ////////////////////////////////////////////////////////////////////
